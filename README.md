@@ -3,9 +3,9 @@
 
 **[Sergio Rey] and [Luc Anselin]**
 
-**November 11, 2014**
+**November 11, 2015**
 
-**NARSC  2014, Bethesda, Maryland**
+**NARSC  2015, Portland, Oregon**
 
 ## Tutorial Description
 
