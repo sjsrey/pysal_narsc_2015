@@ -9,7 +9,7 @@
 
 ## Tutorial Description
 
-A unique feature of this tutorial is the use of Python based software tools for spatial data analysis. Python is an object oriented scripting language that is gaining rapid adoption in the scientific computing and data science communities. To facilitate its adoption within the GIScience community, Rey and Anselin have collaborated on the creation of [PySAL]: Python Library for Spatial Analysis. Since its initial release in July 2010, PySAL has been downloaded over 50,000 times and is now included in well- known open source scientific data analysis distributions, such as Anaconda. This two-part tutorial will introduce participants to the latest version of PySAL as well as to GeoDaSpace, a GUI application based on PySAL designed for spatial econometric analysis. The first component introduces the basic organization and philosophy of PySAL, with a special focus on exploratory spatial data analysis. In the second part of the tutorial the focus moves to practical spatial regression analysis using GeoDaSpace and the PySAL spreg module.
+A unique feature of this tutorial is the use of Python based software tools for spatial data analysis. Python is an object oriented scripting language that is gaining rapid adoption in the scientific computing and data science communities. To facilitate its adoption within the GIScience community, Rey and Anselin have collaborated on the creation of [PySAL]: Python Library for Spatial Analysis. Since its initial release in July 2010, PySAL has been downloaded over 75,000 times and is now included in well- known open source scientific data analysis distributions, such as Anaconda. This two-part tutorial will introduce participants to the latest version of PySAL as well as to GeoDaSpace, a GUI application based on PySAL designed for spatial econometric analysis. The first component introduces the basic organization and philosophy of PySAL, with a special focus on exploratory spatial data analysis. In the second part of the tutorial the focus moves to practical spatial regression analysis using GeoDaSpace and the PySAL spreg module.
 
 ## Prerequisites
 
@@ -24,7 +24,11 @@ For the workshop we will require the following packages be installed
 - PySAL 1.10.0
 - SciPy
 - Numpy
-- iPython Notebook 2.1+
+- iPython 
+- ipywidgets
+- jupyter
+- matplotlib
+- pandas
 - folium
 - [GeoDaSpace][GeoDaSpace]
 
@@ -32,12 +36,27 @@ There are a number of ways to install PySAL and these dependencies. For the work
 
 #### PySAL via Anaconda Python Distribution
 
-1. Install [Anaconda Python Distribution Version 1.8.0][Anaconda]
+1. Install [Anaconda Python Distribution][Anaconda]
 2. Open a terminal (Mac or Linux) or Powershell (Windows)
 2. `pip install -U pysal`
 3. `pip install -U folium`
 
+#### Creating a Custom Conda Environment
+
+If you already have Anaconda installed and you did not want to modify your default environemnt, you can create a *custom conda environment* for this session using the following commands:
+
+1. `conda create -n pysal110 scipy matplotlib jupyter ipython pandas ipywidgets`
+2. `source activate pysal110`
+4. `pip install -U pysal`
+5. `pip install -U folium`
+
+When you are done working in this environment, you can get back to your default environment with:
+
+ `source deactivate`
+
+
 #### PySAL via Enthought Canopy
+
 Note that the Academic version of Canopy comes with PySAL version 1.7. For this workshop we will be using PySAL 1.10. Upgrading in Canopy can be done as follows:
 
 1. Install [Canopy][Canopy]
@@ -59,13 +78,13 @@ For Anaconda:
 3. In the browser click `New Notebook`
 3. In the first cell in the notebook enter  
    `import pysal`
-
    `pysal.version`
-   
    Then `<Shift-Enter>` (i.e., hit the Shift then the Enter Key)
 4. In the second cell in the notebook enter  
    `import folium`
-
+   Then `<Shift-Enter>`
+5. In the third cell enter
+   `!which python`
    Then `<Shift-Enter>`
  
 Your screen should look something like:
@@ -80,13 +99,13 @@ For Enthought Canopy:
 3. In the browser click `New Notebook`
 3. In the first cell in the notebook enter  
    `import pysal`
-
    `pysal.version`
-   
    Then `<Shift-Enter>` (i.e., hit the Shift then the Enter Key)
 4. In the second cell in the notebook enter  
    `import folium`
-
+   Then `<Shift-Enter>`
+5. In the third cell enter
+   `!which python`
    Then `<Shift-Enter>`
  
 
